@@ -75,7 +75,7 @@ var ScheduleRow = React.createClass({
     return (
       <TouchableHighlight>
         <View style={styles.row}>
-          <TimeView time='9.30' image={this.props.talk.speaker.picture} />
+          <TimeView time={this.props.talk.time} image={this.props.talk.speaker.picture} />
           <TalkSummary talk={this.props.talk} />
         </View>
       </TouchableHighlight>
@@ -87,7 +87,8 @@ var ScheduleRow = React.createClass({
 var ParallelScheduleRow = React.createClass({
 
   propTypes: {
-    talks: talkT.isRequired
+    talks: React.PropTypes.arrayOf(talkT).isRequired,
+    time: React.PropTypes.string.isRequired
   },
 
   render: function() {
@@ -104,7 +105,7 @@ var ParallelScheduleRow = React.createClass({
 
     return (
         <View style={styles.row}>
-          <TimeView time='9.30' image={this.props.talks[0].speaker.picture} />
+          <TimeView time={this.props.time} image={this.props.talks[0].speaker.picture} />
           <View style={{ flexDirection: 'column', flex: 1 }}>
             {talkSummaries}
           </View>
@@ -154,7 +155,7 @@ var Schedule = React.createClass({
           switch(slot.type) {
             case 'break': return <BreakRow {...slot} />;
             case 'talk': return <ScheduleRow talk={slot} />;
-            case 'parallel-talks': return <ParallelScheduleRow talks={slot.talks} />;
+            case 'parallel-talks': return <ParallelScheduleRow time={slot.time} talks={slot.talks} />;
           }
         }} />
     );
