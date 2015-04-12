@@ -1,6 +1,8 @@
 'use strict';
 
 var React = require('react-native');
+var TalkDetail = require('./TalkDetail');
+var palette = require('./palette');
 
 var {
   ListView,
@@ -56,24 +58,34 @@ var TalkSummary = React.createClass({
 
   render: function() {
     return (
-      <View style={{ flexDirection: 'column' }}>
+      <View style={styles.talkSummary}>
         <Text style={talkSummaryStyles.speaker}>{this.props.talk.speaker.displayName}</Text>
         <Text style={talkSummaryStyles.title}>{this.props.talk.title}</Text>
-        <Text style={talkSummaryStyles.room}>{this.props.talk.room}</Text>
+        <Text style={this.roomStyle()}>{this.props.talk.room}</Text>
       </View>
     );
-  }
+  },
+
+  roomStyle: function() {
+    switch (this.props.talk.room) {
+      case 'Plenary': return talkSummaryStyles.plenaryRoom;
+      case 'Room A': return talkSummaryStyles.roomA;
+      case 'Room B': return talkSummaryStyles.roomB;
+    }
+  },
+
 });
 
-var ScheduleRow = React.createClass({
+var TalkRow = React.createClass({
 
   propTypes: {
-    talk: talkT.isRequired
+    talk: talkT.isRequired,
+    onPress: React.PropTypes.func
   },
 
   render: function() {
     return (
-      <TouchableHighlight>
+      <TouchableHighlight onPress={this.props.onPress}>
         <View style={styles.row}>
           <TimeView time={this.props.talk.time} image={this.props.talk.speaker.picture} />
           <TalkSummary talk={this.props.talk} />
@@ -84,18 +96,19 @@ var ScheduleRow = React.createClass({
 
 });
 
-var ParallelScheduleRow = React.createClass({
+var ParallelTalksRow = React.createClass({
 
   propTypes: {
     talks: React.PropTypes.arrayOf(talkT).isRequired,
-    time: React.PropTypes.string.isRequired
+    time: React.PropTypes.string.isRequired,
+    onPress: React.PropTypes.func
   },
 
   render: function() {
 
     var talkSummaries = this.props.talks.map((t, i) => {
       return (
-        <TouchableHighlight key={i}>
+        <TouchableHighlight onPress={() => this.props.onPress(t)} key={i}>
           <View>
             <TalkSummary talk={t} />
           </View>
@@ -104,12 +117,12 @@ var ParallelScheduleRow = React.createClass({
     });
 
     return (
-        <View style={styles.row}>
-          <TimeView time={this.props.time} image={this.props.talks[0].speaker.picture} />
-          <View style={{ flexDirection: 'column', flex: 1 }}>
-            {talkSummaries}
-          </View>
+      <View style={styles.row}>
+        <TimeView time={this.props.time} image={this.props.talks[0].speaker.picture} />
+        <View style={{ flexDirection: 'column', flex: 1 }}>
+          {talkSummaries}
         </View>
+      </View>
     );
   }
 
@@ -125,9 +138,9 @@ var BreakRow = React.createClass({
     return (
       <View style={styles.breakRow}>
         <View style={styles.breakRowTime}>
-          <Text>{this.props.time}</Text>
+          <Text style={breakRowStyles.time}>{this.props.time}</Text>
         </View>
-        <Text>{this.props.label}</Text>
+        <Text style={breakRowStyles.label}>{this.props.label}</Text>
       </View>
     )
   },
@@ -146,6 +159,14 @@ var Schedule = React.createClass({
     };
   },
 
+  showTalkDetail(talk) {
+    this.props.navigator.push({
+      title: talk.title,
+      component: TalkDetail,
+      passProps: { talk }
+    });
+  },
+
   render: function() {
     return (
       <ListView
@@ -154,8 +175,8 @@ var Schedule = React.createClass({
         renderRow={ (slot) => {
           switch(slot.type) {
             case 'break': return <BreakRow {...slot} />;
-            case 'talk': return <ScheduleRow talk={slot} />;
-            case 'parallel-talks': return <ParallelScheduleRow time={slot.time} talks={slot.talks} />;
+            case 'talk': return <TalkRow talk={slot} onPress={() => this.showTalkDetail(slot)} />;
+            case 'parallel-talks': return <ParallelTalksRow time={slot.time} talks={slot.talks} onPress={this.showTalkDetail} />;
           }
         }} />
     );
@@ -167,21 +188,31 @@ var styles = StyleSheet.create({
     flex: 1
   },
   row: {
-    flexDirection: 'row',
-    backgroundColor: 'white',
     alignItems: 'center',
+    flexDirection: 'row',
+    backgroundColor: 'white'
+  },
+  talkSummary: {
+    flex: 1,
     paddingTop: 16,
-    paddingBottom: 16
+    paddingBottom: 16,
+    paddingLeft: 9,
+    borderBottomWidth: 0.5,
+    borderColor: palette.lineSeparatorColor,
+    backgroundColor: 'white'
   },
   breakRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#ccc',
+    backgroundColor: palette.breakColor,
     color: 'black',
-    height: 43
+    height: 43,
+    fontSize: 17,
+    fontFamily: 'Lato',
+    fontWeight: '500'
   },
   breakRowTime: {
-    width: 56,
+    width: 82,
     justifyContent: 'center',
     alignItems: 'center'
   }
@@ -190,31 +221,66 @@ var styles = StyleSheet.create({
 var timeViewStyles = StyleSheet.create({
   time: {
     color: 'white',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontSize: 16
   },
   overlay: {
     backgroundColor: 'black',
     opacity: 0.7,
     flex: 1,
-    width: 40,
     alignItems: 'center',
     justifyContent: 'center',
   },
   avatar: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    marginLeft: 8,
-    marginRight: 8
+    width: 52,
+    height: 52,
+    borderRadius: 26,
+    marginLeft: 12,
+    marginRight: 9
+  }
+});
+
+var breakRowStyles = StyleSheet.create({
+  label: {
+    fontFamily: 'Lato',
+    fontSize: 17,
+    fontWeight: '500'
+  },
+  time: {
+    fontFamily: 'Lato',
+    fontSize: 16,
+    fontWeight: '500'
   }
 });
 
 var talkSummaryStyles = StyleSheet.create({
   speaker: {
-    fontWeight: 'bold'
+    fontWeight: '600',
+    fontSize: 17,
+    fontFamily: 'Lato'
   },
-  room: {
-    color: 'blue'
+  title: {
+    fontWeight: '300',
+    fontSize: 15,
+    fontFamily: 'Lato',
+  },
+  plenaryRoom: {
+    color: palette.plenaryRoomColor,
+    fontWeight: '500',
+    fontSize: 15,
+    fontFamily: 'Lato',
+  },
+  roomA: {
+    color: palette.roomAColor,
+    fontWeight: '500',
+    fontSize: 15,
+    fontFamily: 'Lato',
+  },
+  roomB: {
+    color: palette.roomBColor,
+    fontWeight: '500',
+    fontSize: 15,
+    fontFamily: 'Lato',
   }
 });
 

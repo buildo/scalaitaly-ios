@@ -10,6 +10,17 @@ var slots = [{
   room: 'Plenary',
   time: '9.30'
 }, {
+  type: 'talk',
+  speaker: {
+    displayName: "Jon Pretty",
+    picture: {
+      uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/gerrenlamson/128.jpg'
+    }
+  },
+  title: "Demystifying type inference",
+  room: "Plenary",
+  time: '11.00'
+}, {
   type: 'break',
   time: '13.00',
   label: 'Lunch'
@@ -17,13 +28,13 @@ var slots = [{
   type: 'parallel-talks',
   talks: [{
     speaker: {
-      displayName: "Martin Odersky",
+      displayName: "Jon Pretty",
       picture: {
         uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/gerrenlamson/128.jpg'
       }
     },
-    title: "The evolution of Scala",
-    room: "Plenary"
+    title: "Demystifying type inference",
+    room: "Room A"
   }, {
     speaker: {
       displayName: "Martin Odersky",
@@ -32,7 +43,7 @@ var slots = [{
       }
     },
     title: 'The evolution of Scala',
-    room: 'Plenary'
+    room: 'Room B'
   }],
   time: '14.30'
 }];
