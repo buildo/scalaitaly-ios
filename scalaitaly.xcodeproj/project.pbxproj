@@ -18,12 +18,20 @@
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
-		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		6A150F571AD9DF060016CD76 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6A150F541AD9DF060016CD76 /* Lato-Light.ttf */; };
 		6A150F581AD9DF060016CD76 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6A150F551AD9DF060016CD76 /* Lato-Medium.ttf */; };
 		6A150F591AD9DF060016CD76 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6A150F561AD9DF060016CD76 /* Lato-Semibold.ttf */; };
+		6AEC331F1AE984C3000DB1BD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AEC331E1AE984C3000DB1BD /* Images.xcassets */; };
+		6AEC332A1AE98696000DB1BD /* alberto-paro.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEC33221AE98696000DB1BD /* alberto-paro.png */; };
+		6AEC332B1AE98696000DB1BD /* alessandro-abbruzzetti.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEC33231AE98696000DB1BD /* alessandro-abbruzzetti.png */; };
+		6AEC332C1AE98696000DB1BD /* andrea-ferretti.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEC33241AE98696000DB1BD /* andrea-ferretti.png */; };
+		6AEC332D1AE98696000DB1BD /* daniela-sfregola.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEC33251AE98696000DB1BD /* daniela-sfregola.png */; };
+		6AEC332E1AE98696000DB1BD /* federico-feroldi.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEC33261AE98696000DB1BD /* federico-feroldi.png */; };
+		6AEC332F1AE98696000DB1BD /* jon-pretty.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEC33271AE98696000DB1BD /* jon-pretty.png */; };
+		6AEC33301AE98696000DB1BD /* mirco-dotta.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEC33281AE98696000DB1BD /* mirco-dotta.png */; };
+		6AEC33311AE98696000DB1BD /* phil-calcado.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEC33291AE98696000DB1BD /* phil-calcado.png */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 /* End PBXBuildFile section */
 
@@ -121,7 +129,6 @@
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = iOS/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = iOS/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = iOS/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = iOS/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = iOS/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
@@ -129,6 +136,15 @@
 		6A150F551AD9DF060016CD76 /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
 		6A150F561AD9DF060016CD76 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
 		6A56CCF11AD61AAC001F2F87 /* ReactNativeIcons.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeIcons.xcodeproj; path = "node_modules/react-native-icons/ios/ReactNativeIcons.xcodeproj"; sourceTree = "<group>"; };
+		6AEC331E1AE984C3000DB1BD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6AEC33221AE98696000DB1BD /* alberto-paro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alberto-paro.png"; sourceTree = "<group>"; };
+		6AEC33231AE98696000DB1BD /* alessandro-abbruzzetti.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alessandro-abbruzzetti.png"; sourceTree = "<group>"; };
+		6AEC33241AE98696000DB1BD /* andrea-ferretti.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "andrea-ferretti.png"; sourceTree = "<group>"; };
+		6AEC33251AE98696000DB1BD /* daniela-sfregola.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "daniela-sfregola.png"; sourceTree = "<group>"; };
+		6AEC33261AE98696000DB1BD /* federico-feroldi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "federico-feroldi.png"; sourceTree = "<group>"; };
+		6AEC33271AE98696000DB1BD /* jon-pretty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jon-pretty.png"; sourceTree = "<group>"; };
+		6AEC33281AE98696000DB1BD /* mirco-dotta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mirco-dotta.png"; sourceTree = "<group>"; };
+		6AEC33291AE98696000DB1BD /* phil-calcado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phil-calcado.png"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -212,17 +228,25 @@
 		13B07FAE1A68108700A75B9A /* scalaitaly */ = {
 			isa = PBXGroup;
 			children = (
+				6AEC33221AE98696000DB1BD /* alberto-paro.png */,
+				6AEC33231AE98696000DB1BD /* alessandro-abbruzzetti.png */,
+				6AEC33241AE98696000DB1BD /* andrea-ferretti.png */,
+				6AEC33251AE98696000DB1BD /* daniela-sfregola.png */,
+				6AEC33261AE98696000DB1BD /* federico-feroldi.png */,
+				6AEC33271AE98696000DB1BD /* jon-pretty.png */,
+				6AEC33281AE98696000DB1BD /* mirco-dotta.png */,
+				6AEC33291AE98696000DB1BD /* phil-calcado.png */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				6A56CCF11AD61AAC001F2F87 /* ReactNativeIcons.xcodeproj */,
-				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				6A150F541AD9DF060016CD76 /* Lato-Light.ttf */,
 				6A150F551AD9DF060016CD76 /* Lato-Medium.ttf */,
 				6A150F561AD9DF060016CD76 /* Lato-Semibold.ttf */,
+				6AEC331E1AE984C3000DB1BD /* Images.xcassets */,
 			);
 			name = scalaitaly;
 			sourceTree = "<group>";
@@ -463,10 +487,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A150F581AD9DF060016CD76 /* Lato-Medium.ttf in Resources */,
+				6AEC33301AE98696000DB1BD /* mirco-dotta.png in Resources */,
 				008F07F31AC5B25A0029DE68 /* main.jsbundle in Resources */,
-				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				6AEC332C1AE98696000DB1BD /* andrea-ferretti.png in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				6AEC331F1AE984C3000DB1BD /* Images.xcassets in Resources */,
+				6AEC332F1AE98696000DB1BD /* jon-pretty.png in Resources */,
+				6AEC332B1AE98696000DB1BD /* alessandro-abbruzzetti.png in Resources */,
+				6AEC332E1AE98696000DB1BD /* federico-feroldi.png in Resources */,
 				6A150F571AD9DF060016CD76 /* Lato-Light.ttf in Resources */,
+				6AEC332D1AE98696000DB1BD /* daniela-sfregola.png in Resources */,
+				6AEC332A1AE98696000DB1BD /* alberto-paro.png in Resources */,
+				6AEC33311AE98696000DB1BD /* phil-calcado.png in Resources */,
 				6A150F591AD9DF060016CD76 /* Lato-Semibold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

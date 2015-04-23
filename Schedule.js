@@ -3,6 +3,7 @@
 var React = require('react-native');
 var TalkDetail = require('./TalkDetail');
 var palette = require('./palette');
+var TimeView = require('./TimeView');
 
 var {
   ListView,
@@ -24,30 +25,6 @@ var talkT = React.PropTypes.shape({
   title: React.PropTypes.string.isRequired,
   speaker: speakerT.isRequired,
   room: React.PropTypes.string.isRequired,
-});
-
-var TimeView = React.createClass({
-  propTypes: {
-    time: React.PropTypes.string.isRequired,
-    image: React.PropTypes.shape({
-      uri: React.PropTypes.string.isRequired
-    })
-  },
-
-  render: function() {
-    return (
-      <Image
-        style={timeViewStyles.avatar}
-        source={this.props.image}>
-        <View style={timeViewStyles.overlay}>
-          <Text style={timeViewStyles.time}>
-            {this.props.time}
-          </Text>
-        </View>
-      </Image>
-    )
-  }
-
 });
 
 var TalkSummary = React.createClass({
@@ -108,7 +85,7 @@ var ParallelTalksRow = React.createClass({
 
     var talkSummaries = this.props.talks.map((t, i) => {
       return (
-        <TouchableHighlight onPress={() => this.props.onPress(t)} key={i}>
+        <TouchableHighlight onPress={() => this.props.onPress(t, this.props.time)} key={i}>
           <View>
             <TalkSummary talk={t} />
           </View>
@@ -159,11 +136,11 @@ var Schedule = React.createClass({
     };
   },
 
-  showTalkDetail(talk) {
+  showTalkDetail(talk, time) {
     this.props.navigator.push({
       title: talk.title,
       component: TalkDetail,
-      passProps: { talk }
+      passProps: { talk, time }
     });
   },
 
@@ -175,7 +152,7 @@ var Schedule = React.createClass({
         renderRow={ (slot) => {
           switch(slot.type) {
             case 'break': return <BreakRow {...slot} />;
-            case 'talk': return <TalkRow talk={slot} onPress={() => this.showTalkDetail(slot)} />;
+            case 'talk': return <TalkRow talk={slot} onPress={() => this.showTalkDetail(slot, slot.time)} />;
             case 'parallel-talks': return <ParallelTalksRow time={slot.time} talks={slot.talks} onPress={this.showTalkDetail} />;
           }
         }} />
@@ -215,28 +192,6 @@ var styles = StyleSheet.create({
     width: 82,
     justifyContent: 'center',
     alignItems: 'center'
-  }
-});
-
-var timeViewStyles = StyleSheet.create({
-  time: {
-    color: 'white',
-    fontWeight: 'bold',
-    fontSize: 16
-  },
-  overlay: {
-    backgroundColor: 'black',
-    opacity: 0.7,
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  avatar: {
-    width: 52,
-    height: 52,
-    borderRadius: 26,
-    marginLeft: 12,
-    marginRight: 9
   }
 });
 
