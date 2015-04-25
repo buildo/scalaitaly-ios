@@ -2,9 +2,7 @@ var slots = [{
   type: 'talk',
   speaker: {
     displayName: "Martin Odersky",
-    picture: {
-      uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/gerrenlamson/128.jpg'
-    },
+    picture: require('image!martin-odersky'),
     bio: 'Martin Odersky heads the programming research group at EPFL. His research interests cover fundamental as well as applied aspects of programming languages. They include semantics, type systems, programming language design, and compiler construction. The main focus if his work lies in the integration of object-oriented and functional programming. His research thesis is that the two paradigms are just two sides of the same coin and should be unified as much as possible. To prove this he has experimented a number of language designs, from Pizza to GJ to Functional Nets. He has also influenced the development of Java as a co-designer of Java generics and as the original author of the current javac reference compiler. His current work concentrates on the Scala programming language, which unifies FP and OOP, while staying completely interoperable with Java and .NET.'
   },
   title: 'The evolution of Scala',
@@ -24,7 +22,7 @@ var slots = [{
     company: 'SoundCloud',
     twitter: '@pcalcado'
   },
-  title: "Demystifying Type Inference",
+  title: "Your microservice as a Function",
   abstract: "SoundCloud's microservice architecture is built mostly in Scala, using Finagle as its distributed systems workhorse. Finagle is an RPC system for the JVM, and it is based on a pipes-and-filters architecture that maps very nicely to functional programming concepts of higher-order functions and combinators. Over the past few years we have found that it is extremely useful to go even a step further and think of microservices as functions themselves. In this talk let's explore how SoundCloud uses Scala and Finagle, and how we started thinking of a microservices architecture as a special case of a functional system.",
   room: "Plenary",
   time: '10.40'
@@ -105,26 +103,36 @@ var slots = [{
   type: 'parallel-talks',
   talks: [{
     speaker: {
-      displayName: "Roberto Bentivoglio & Stefano Rocco",
-      picture: {
-        uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/gerrenlamson/128.jpg'
-      },
-      bio: "Roberto graduated during 2009 at \"Università degli studi di Milano\" but he started to work with Java since 2005. He has been experimenting with Scala since 2009 and he is now using it on his everyday work. He spent four years in Switzerland where he worked for Credit Suisse Group. In the last years Roberto has worked on web applications following the Reactive Manifesto principles. He lives in Milano and he is now Head of IT Innovation at DATABIZ. Stefano graduated in 2008 at the National College of Ireland, spent 10 years working for major investment banks. He has many years of experience in developing low-latency trading applications in Java. He likes experimenting with different programming languages such as Python, Erlang and Julia. He started working with Scala and Typesafe Reactive platform back in 2011. He is CTO at DATABIZ",
+      displayName: "Roberto Bentivoglio",
+      picture: require('image!roberto-bentivoglio'),
+      bio: "Roberto graduated during 2009 at \"Università degli studi di Milano\" but he started to work with Java since 2005. He has been experimenting with Scala since 2009 and he is now using it on his everyday work. He spent four years in Switzerland where he worked for Credit Suisse Group. In the last years Roberto has worked on web applications following the Reactive Manifesto principles. He lives in Milano and he is now Head of IT Innovation at DATABIZ.",
       company: 'Databiz',
       twitter: '@robbenti'
+    },
+    secondSpeaker: {
+      displayName: "Stefano Rocco",
+      picture: require('image!stefano-rocco'),
+      bio: "Stefano graduated in 2008 at the National College of Ireland, spent 10 years working for major investment banks. He has many years of experience in developing low-latency trading applications in Java. He likes experimenting with different programming languages such as Python, Erlang and Julia. He started working with Scala and Typesafe Reactive platform back in 2011. He is CTO at DATABIZ",
+      company: 'Databiz',
+      twitter: '@whispurr_it'
     },
     title: "Scala in increasingly demanding environments",
     abstract: "The need to handle increasingly large volumes of data, to quickly drive decisions (via streaming technologies and machine learning algorithms), to scale systems effectively, to guarantee the right level of continuity, to float data across systems efficiently and others are becoming critical and challenging requirements. During this talk we’ll demonstrate how to design reactive, resilient, message driven and elastic applications by combining technologies such as Akka, Kakfa, Cassandra and Spark along with architectural patterns like CQRS, ES, etc. in order to achieve the previously mentioned needs.",
     room: "Room A"
   }, {
     speaker: {
-      displayName: "Andrea Lattuada & Gabriele Petronella",
-      picture: {
-        uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/gerrenlamson/128.jpg'
-      },
-      bio: "Andrea is an eclectic engineer with a passion for well crafted software; co-founder of buildo, he focuses on developing stable platforms that enable rapid iteration. A former Google and Facebook intern where he gained experience as a site reliability / production engineer and currently pursuing a MSc degree in Computer Science with a focus on distributed systems at ETH Zürich. Gabriele has a strong entrepreneurial spirit. Before co-founding buildo, he founded Metwit, a crowdsourced-weather startup, in 2011, leading the iOS app development. He has also been working as research assistant at UIC and later as a mobile security consultant at Barclays. He loves studying and researching technologies and he is a functional programming devotee. He graduated from UIC with a Master in Computer Science and from Politecnico di Milano with a Master in Computer Engineering",
-      company: 'Buildo',
-      twitter: "@buildoHQ"
+      displayName: "Andrea Lattuada",
+      picture: require('image!andrea-lattuada'),
+      bio: "Andrea is an eclectic engineer with a passion for well crafted software; co-founder of buildo, he focuses on developing stable platforms that enable rapid iteration. A former Google and Facebook intern where he gained experience as a site reliability / production engineer and currently pursuing a MSc degree in Computer Science with a focus on distributed systems at ETH Zürich.",
+      company: 'buildo',
+      twitter: "@utaal"
+    },
+    secondSpeaker: {
+      displayName: "Gabriele Petronella",
+      picture: require('image!gabriele-petronella'),
+      bio: "Gabriele has a strong entrepreneurial spirit. Before co-founding buildo, he founded Metwit, a crowdsourced-weather startup, in 2011, leading the iOS app development. He has also been working as research assistant at UIC and later as a mobile security consultant at Barclays. He loves studying and researching technologies and he is a functional programming devotee. He graduated from UIC with a Master in Computer Science and from Politecnico di Milano with a Master in Computer Engineering.",
+      company: 'buildo',
+      twitter: "@gabro27"
     },
     title: "Building startups on Scala",
     abstract: "TBD",

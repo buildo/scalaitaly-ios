@@ -27,11 +27,16 @@ var Header = React.createClass({
       case 'Room B': style = styles.headerB; break;
       case 'Plenary': style = styles.headerPlenary; break;
     }
+    var speaker2Name = () => {
+      if (this.props.talk.secondSpeaker) {
+        return `& ${this.props.talk.secondSpeaker.displayName}`
+      }
+    };
     return (
       <View style={style}>
         <View style={styles.headerContent}>
           <Text style={styles.headerAuthor}>
-            {this.props.talk.speaker.displayName}
+            {this.props.talk.speaker.displayName} {speaker2Name()}
           </Text>
           <Text style={styles.headerTitle}>
             {this.props.talk.title}
@@ -64,17 +69,17 @@ var Abstract = React.createClass({
 
 var SpeakerBio = React.createClass({
   propTypes: {
-    talk: React.PropTypes.object.isRequired
+    speaker: React.PropTypes.object.isRequired
   },
 
   render: function() {
     return (
       <View style={{flexDirection: 'row'}}>
-        <Image style={styles.avatar} source={this.props.talk.speaker.picture} />
+        <Image style={styles.avatar} source={this.props.speaker.picture} />
         <View style={styles.speakerBioWrapper}>
           <Text style={styles.speakerBioSpeaker}>Speaker</Text>
-          <Text style={styles.speakerBioName}>{this.props.talk.speaker.displayName}</Text>
-          <Text style={styles.speakerBio}>{this.props.talk.speaker.bio}</Text>
+          <Text style={styles.speakerBioName}>{this.props.speaker.displayName}</Text>
+          <Text style={styles.speakerBio}>{this.props.speaker.bio}</Text>
         </View>
       </View>
     )
@@ -146,6 +151,14 @@ var TalkDetail = React.createClass({
         width: 0
       }
     };
+    var FirstSpeakerBio = () => {
+      return <SpeakerBio speaker={this.props.talk.speaker} />;
+    };
+    var SecondSpeakerBio = () => {
+      if (this.props.talk.secondSpeaker) {
+        return <SpeakerBio speaker={this.props.talk.secondSpeaker} />;
+      }
+    };
     return (
       <View style={styles.container}>
         <View style={styles.wrapper}>
@@ -154,7 +167,8 @@ var TalkDetail = React.createClass({
           </View>
           <ScrollView style={styles.scrollView} automaticallyAdjustContentInsets={false}>
             <Abstract talk={this.props.talk} />
-            <SpeakerBio talk={this.props.talk} />
+            {FirstSpeakerBio()}
+            {SecondSpeakerBio()}
           </ScrollView>
           <TimeView time={this.props.time} style={{
             position: 'absolute', top: this.state.headerHeight - 26, left: 0,

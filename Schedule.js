@@ -34,9 +34,14 @@ var TalkSummary = React.createClass({
   },
 
   render: function() {
+    var speaker2Name = () => {
+      if (this.props.talk.secondSpeaker) {
+        return `& ${this.props.talk.secondSpeaker.displayName}`
+      }
+    };
     return (
       <View style={styles.talkSummary}>
-        <Text style={talkSummaryStyles.speaker}>{this.props.talk.speaker.displayName}</Text>
+        <Text style={talkSummaryStyles.speaker}>{this.props.talk.speaker.displayName} {speaker2Name()}</Text>
         <Text style={talkSummaryStyles.title}>{this.props.talk.title}</Text>
         <Text style={this.roomStyle()}>{this.props.talk.room}</Text>
       </View>
